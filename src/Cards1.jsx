@@ -5,6 +5,8 @@ import { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import {displayRazorpay} from './payment/pament'
+
 function Courses() {
   const [courses, setCourses] = useState([]);
   console.log('courses :::',courses)
@@ -46,6 +48,10 @@ export function Cards1(props) {
       state : {detail : course}
     });
   },[])
+
+  const handlePayment = useCallback((price)=>()=>{
+    displayRazorpay(price);
+  },[])
   return (
     <>
       <center style={{ padding: "10px" }}>
@@ -77,6 +83,7 @@ export function Cards1(props) {
               borderRadius : 5
             }}
             variant="contained"
+            onClick={handlePayment(course.price)}
             >
             Purchase
           </Button>
