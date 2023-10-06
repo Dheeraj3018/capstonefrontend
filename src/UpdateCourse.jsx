@@ -13,7 +13,7 @@ function Course() {
   useEffect(() => {
     console.log(courseId);
     axios
-      .get("http://localhost:3000/admin/course/" + courseId, {
+      .get("http://localhost:9000/admin/courses/" + courseId, {
         method: "GET",
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
@@ -158,7 +158,7 @@ export function UpdateCourse({ course, setCourse }) {
                   onClick={async (e) => {
                     e.preventDefault();
                     axios.put(
-                      "http://localhost:3000/admin/courses/" + course._id,
+                      "http://localhost:9000/admin/courses/" + course._id,
                       {
                         title: title,
                         description: description,

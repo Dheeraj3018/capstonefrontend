@@ -75,7 +75,7 @@ function UplodaCourse() {
                   onClick={async (e) => {
                     e.preventDefault();
                     await axios.post(
-                      "http://localhost:3000/admin/courses",
+                      "http://localhost:9000/admin/courses",
                       {
                         title: title,
                         description: description,

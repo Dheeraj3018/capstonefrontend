@@ -9,7 +9,7 @@ function Courses() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/admin/courses/", {
+      .get("http://localhost:9000/admin/courses/", {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },
@@ -29,6 +29,7 @@ function Courses() {
   );
 }
 
+
 export function AllCourses({ course }) {
   const navigate = useNavigate();
   const [userEmail, setUserEmail] = useState(null);
@@ -37,7 +38,7 @@ export function AllCourses({ course }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/user/me", {
+        const response = await axios.get("http://localhost:9000/user/me", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -57,7 +58,7 @@ export function AllCourses({ course }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/admin/me", {
+        const response = await axios.get("http://localhost:9000/admin/me", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -73,6 +74,8 @@ export function AllCourses({ course }) {
 
     fetchData();
   }, []);
+
+ 
 
   switch (true) {
     case userEmail !== null:
@@ -110,7 +113,7 @@ export function AllCourses({ course }) {
                   sx={{ ml: "auto", fontWeight: 600 }}
                   onClick={async () => {
                     await axios.post(
-                      "http://localhost:3000/user/courses/" + course._id,
+                      "http://localhost:9000/user/courses/" + course._id,
                       {},
                       {
                         headers: {
@@ -124,6 +127,7 @@ export function AllCourses({ course }) {
                 >
                   Purchase
                 </Button>
+            
               </CardContent>
             </Card>
           </div>

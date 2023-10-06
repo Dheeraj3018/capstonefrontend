@@ -12,7 +12,7 @@ function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/user/me", {
+        const response = await axios.get("http://localhost:9000/user/me", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -32,7 +32,7 @@ function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/admin/me", {
+        const response = await axios.get("http://localhost:9000/admin/me", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -194,7 +194,7 @@ function Home() {
                 }}
               >
                 <img
-                  src="https://picsum.photos/1200/300?grayscale"
+                  src="https://s3.ap-south-1.amazonaws.com/guvi-2.0/banner/Zen_class_banner_1.webp"
                   alt="Banner Image"
                 />
                 <Typography style={{ fontSize: "30px", textAlign: "center" }}>
@@ -299,19 +299,15 @@ function Home() {
           >
             <div
               style={{
-                width: "70%",
+                width: "80%",
                 height: "30%",
                 maxWidth: "100%",
                 maxHeight: "100%",
               }}
             >
-              <Card
-                style={{
-                  borderRadius: "40px",
-                }}
-              >
+              <Card >
                 <img
-                  src="https://picsum.photos/1200/300?grayscale"
+                  src="https://admission.aglasem.com/wp-content/uploads/2019/12/COURSES-1140x641.png"
                   alt="Banner Image"
                 />
                 <Typography style={{ fontSize: "30px", textAlign: "center" }}>

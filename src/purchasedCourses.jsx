@@ -13,7 +13,7 @@ function PurchasedCourses() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/user/purchasedCourses", {
+      .get("http://localhost:9000/user/purchasedCourses", {
         method: "GET",
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),

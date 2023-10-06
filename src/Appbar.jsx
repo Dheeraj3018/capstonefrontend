@@ -13,7 +13,7 @@ function Appbar() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/user/me", {
+        const response = await axios.get("http://localhost:9000/user/me", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -33,7 +33,7 @@ function Appbar() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/admin/me", {
+        const response = await axios.get("http://localhost:9000/admin/me", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
