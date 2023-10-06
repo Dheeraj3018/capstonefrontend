@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./Footer";
 import AllCourses from "./AllCourses";
 import PurchasedCourses from "./purchasedCourses";
+import CourseDetails from './CourseDetails'
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path={"/purchasedCourses"} element={<PurchasedCourses />} />
             <Route path={"/course/:courseId"} element={<UpdateCourse />} />
             <Route path={"/courses"} element={<AllCourses />} />
+            <Route path={"/courses/details"} element={<CourseDetails />} />
             <Route path={"/signup"} element={<Registration />} />
             <Route path={"/signin"} element={<Loginup />} />
             <Route path={"/*"} element={<Home />} />

@@ -1,12 +1,15 @@
-import { Typography, Card, Button } from "@mui/material/";
+import {  Box,Typography, Card, Button } from "@mui/material/";
 import AspectRatio from "@mui/joy/AspectRatio";
 import * as React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Courses() {
   const [courses, setCourses] = useState([]);
+  console.log('courses :::',courses)
+
+  
 
   useEffect(() => {
     function callback2(data) {
@@ -36,6 +39,13 @@ function Courses() {
 
 export function Cards1(props) {
   const course = props.course;
+  const navigate = useNavigate();
+  const handleDetails = useCallback((course) => ()=>{
+    console.log('>>>')
+    navigate('/courses/details',{
+      state : {detail : course}
+    });
+  },[])
   return (
     <>
       <center style={{ padding: "10px" }}>
@@ -61,19 +71,22 @@ export function Cards1(props) {
               <b>Rs {course.price} </b>
             </Typography>
           </div>
+          <Box sx={{display : 'flex',justifyContent : 'space-around'}}>
           <Button
             style={{
-              fontSize: "20px",
-              fontWeight: "bold",
-              color: "white",
-              textTransform: "none",
-              backgroundColor: "#00aagg",
-              borderRadius: "20px",
+              borderRadius : 5
             }}
             variant="contained"
-          >
+            >
             Purchase
           </Button>
+          <Button variant="contained"
+            style={{
+              borderRadius : 5
+            }}
+            onClick={handleDetails(course)}
+          >View Details</Button>
+          </Box>
         </Card>
       </center>
     </>
