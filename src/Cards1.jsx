@@ -20,7 +20,7 @@ function Courses() {
     function callback1(res) {
       res.json().then(callback2);
     }
-    fetch("http://localhost:9000/admin/courses/", {
+    fetch("https://capstonebackend-ui3a.onrender.com", {
       method: "GET",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),

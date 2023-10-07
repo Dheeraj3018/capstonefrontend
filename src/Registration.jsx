@@ -88,8 +88,8 @@ function Registration() {
                     e.preventDefault();
                     const url =
                       selectedRole === "user"
-                        ? "http://localhost:9000/user/signup"
-                        : "http://localhost:9000/admin/signup";
+                        ? "https://capstonebackend-ui3a.onrender.com"
+                        : "https://capstonebackend-ui3a.onrender.com";
                     const res = await axios.post(
                       url,
                       {

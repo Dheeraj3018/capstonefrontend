@@ -9,7 +9,7 @@ function Courses() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:9000/admin/courses/", {
+      .get("https://capstonebackend-ui3a.onrender.com", {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },
@@ -38,7 +38,7 @@ export function AllCourses({ course }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:9000/user/me", {
+        const response = await axios.get("https://capstonebackend-ui3a.onrender.com", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -58,7 +58,7 @@ export function AllCourses({ course }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:9000/admin/me", {
+        const response = await axios.get("https://capstonebackend-ui3a.onrender.com", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -113,7 +113,7 @@ export function AllCourses({ course }) {
                   sx={{ ml: "auto", fontWeight: 600 }}
                   onClick={async () => {
                     await axios.post(
-                      "http://localhost:9000/user/courses/" + course._id,
+                      "https://capstonebackend-ui3a.onrender.com" + course._id,
                       {},
                       {
                         headers: {
