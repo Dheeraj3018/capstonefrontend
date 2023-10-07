@@ -20,7 +20,7 @@ function Courses() {
     function callback1(res) {
       res.json().then(callback2);
     }
-    fetch("https://capstonebackend-ui3a.onrender.com", {
+    fetch("https://capstonebackend-ui3a.onrender.com/admin/courses/", {
       method: "GET",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
@@ -32,7 +32,7 @@ function Courses() {
     <div
       style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
     >
-      {courses.map((course) => {
+      {courses && courses.map((course) => {
         return <Cards1 course={course} />;
       })}
     </div>

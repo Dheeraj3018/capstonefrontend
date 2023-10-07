@@ -13,7 +13,7 @@ function PurchasedCourses() {
 
   useEffect(() => {
     axios
-      .get("https://capstonebackend-ui3a.onrender.com", {
+      .get("https://capstonebackend-ui3a.onrender.com/user/purchasedCourses", {
         method: "GET",
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),

@@ -9,7 +9,7 @@ function Courses() {
 
   useEffect(() => {
     axios
-      .get("https://capstonebackend-ui3a.onrender.com", {
+      .get("https://capstonebackend-ui3a.onrender.com/admin/courses/", {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },
@@ -38,7 +38,7 @@ export function AllCourses({ course }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://capstonebackend-ui3a.onrender.com", {
+        const response = await axios.get("https://capstonebackend-ui3a.onrender.com/user/me", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -58,7 +58,7 @@ export function AllCourses({ course }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://capstonebackend-ui3a.onrender.com", {
+        const response = await axios.get("https://capstonebackend-ui3a.onrender.com/admin/me", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -113,7 +113,7 @@ export function AllCourses({ course }) {
                   sx={{ ml: "auto", fontWeight: 600 }}
                   onClick={async () => {
                     await axios.post(
-                      "https://capstonebackend-ui3a.onrender.com" + course._id,
+                      "https://capstonebackend-ui3a.onrender.com/user/courses" + course._id,
                       {},
                       {
                         headers: {

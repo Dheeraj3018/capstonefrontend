@@ -17,6 +17,43 @@ function Registration() {
   const [selectedRole, setSelectedRole] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const handleButtonClick = async (e) => {
+    e.preventDefault();
+
+    const url =
+      selectedRole === 'user'
+        ? 'https://capstonebackend-ui3a.onrender.com/user/signup'
+        : 'https://capstonebackend-ui3a.onrender.com/admin/signup';
+
+    try {
+      const res = await axios.post(
+        url,
+        {
+          username: email,
+          password: password,
+        },
+        {
+          headers: {
+            'Content-type': 'application/json',
+          },
+        }
+      );
+const data = res.data;
+      if (data) {
+        localStorage.setItem('token', data.token);
+        window.location = '/';
+      } else {
+        alert('Signup failed. Please try again.');
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 401) {
+        // Handle 401 Unauthorized error here, e.g., show an error message to the user
+        alert('Authentication failed. Please check your credentials.');
+      } else {
+alert('An error occurred. Please try again later.');
+      }
+    }
+  };
   return (
     <>
       <center>
@@ -84,29 +121,7 @@ function Registration() {
                   variant="contained"
                   color="primary"
                   sx={{ marginTop: "16px" }}
-                  onClick={async (e) => {
-                    e.preventDefault();
-                    const url =
-                      selectedRole === "user"
-                        ? "https://capstonebackend-ui3a.onrender.com"
-                        : "https://capstonebackend-ui3a.onrender.com";
-                    const res = await axios.post(
-                      url,
-                      {
-                        username: email,
-                        password: password,
-                      },
-                      {
-                        headers: {
-                          "Content-type": "application/json",
-                        },
-                      }
-                    );
-                    const data = res.data;
-
-                    localStorage.setItem("token", data.token);
-                    window.location = "/";
-                  }}
+                  onClick={handleButtonClick}
                 >
                   Sign up
                 </Button>

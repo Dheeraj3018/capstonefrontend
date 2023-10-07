@@ -75,7 +75,7 @@ function UplodaCourse() {
                   onClick={async (e) => {
                     e.preventDefault();
                     await axios.post(
-                      "https://capstonebackend-ui3a.onrender.com",
+                      "https://capstonebackend-ui3a.onrender.com/admin/courses",
                       {
                         title: title,
                         description: description,

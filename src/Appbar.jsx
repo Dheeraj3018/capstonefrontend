@@ -13,7 +13,7 @@ function Appbar() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://capstonebackend-ui3a.onrender.com", {
+        const response = await axios.get("https://capstonebackend-ui3a.onrender.com/user/me", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -33,7 +33,7 @@ function Appbar() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://capstonebackend-ui3a.onrender.com", {
+        const response = await axios.get("https://capstonebackend-ui3a.onrender.com/admin/me", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },

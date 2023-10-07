@@ -87,8 +87,8 @@ function Loginup() {
                     e.preventDefault();
                     const url =
                       selectedRole === "user"
-                        ? "https://capstonebackend-ui3a.onrender.com"
-                        : "https://capstonebackend-ui3a.onrender.com";
+                        ? "https://capstonebackend-ui3a.onrender.com/user/login"
+                        : "https://capstonebackend-ui3a.onrender.com/admin/login";
                     const res = await axios.post(
                       url,
                       {
